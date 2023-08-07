@@ -16,7 +16,7 @@
       <div class="item">
         <h3>{{ value.subTitle }}</h3>
         <ul>
-          <li *ngFor="let codeName of getCodeNamesByTitle(selectedTitle)" (click)="onSelectCodeName(codeName)"
+          <li *ngFor="let codeName of getCodeNamesByTitle(selectedTitle)" (click)="onSelectCodeName(codeName)" (dblclick)="onDblClickCodeName(codeName)"
             [style.background-color]="selectedCode === codeName.code ? '#FDD3A4' : 'transparent'">
             {{ codeName.name }}
           </li>
@@ -25,9 +25,9 @@
     </ng-template>
   </p-splitter>
 
-  <div class="footer">
+  <!-- <div class="footer">
     <p-button label="取消" styleClass="p-button-outlined p-button-secondary" (onClick)="doCancelClick()"></p-button>
     <p-button label="確定" styleClass="p-button-raised p-button-success" (onClick)="doOk()"></p-button>
-  </div>
+  </div> -->
 
 </div>

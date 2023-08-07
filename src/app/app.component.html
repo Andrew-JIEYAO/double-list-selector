@@ -1,9 +1,14 @@
 <div class="card flex justify-content-center">
   <p-button icon="pi pi-external-link" label="姓氏" (click)="showDialog()"></p-button>
   <p-dialog header="選取醫師" [(visible)]="visible" [style]="{width: '50vw'}">
-    <his-double-list-selector [value]="doubleList" (hide)="onHide()" (ok)="onOk($event)"></his-double-list-selector>
+    <his-double-list-selector [value]="doubleList" [codeName]="docCodeName" (codeNameChange)="docCodeName=$event" (hide)="onHide()" (ok)="onOk($event)"></his-double-list-selector>
   </p-dialog>
 </div>
 
+<!-- <p>選擇的Code:</p>
+<p>{{ selectedCode }}</p> -->
+
+<p>選擇的Name:</p>
+<p>{{ docCodeName.name }}</p>
 <p>選擇的Code:</p>
-<p>{{ selectedCode }}</p>
+<p>{{ docCodeName.code }}</p>

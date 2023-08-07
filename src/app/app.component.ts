@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DoubleList } from './double-list-selector/doubleList.interface';
+import { DoubleList, CodeName } from './double-list-selector/doubleList.interface';
 import { DoubleListSelectorComponent } from "./double-list-selector/double-list-selector.component";
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
@@ -16,6 +16,7 @@ export class AppComponent {
   title = 'double-list-selector';
   visible: boolean = false;
   selectedCode?: string;
+  docCodeName = {} as CodeName;
 
   doubleList: DoubleList = {
     title: '醫生姓氏',

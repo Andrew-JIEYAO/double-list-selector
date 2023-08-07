@@ -17,6 +17,9 @@ export class DoubleListSelectorComponent {
   @Output() hide = new EventEmitter<void>();
   @Output() ok = new EventEmitter<string>();
 
+  @Input() codeName = {} as CodeName;
+  @Output() codeNameChange = new EventEmitter<CodeName>();
+
   selectedTitle: string = '';
   selectedCode?: string;
 
@@ -32,6 +35,10 @@ export class DoubleListSelectorComponent {
 
   onSelectCodeName(codeName: CodeName) {
     this.selectedCode = codeName.code;
+  }
+
+  onDblClickCodeName(codeName: CodeName) {
+    this.codeNameChange.emit(codeName);
   }
 
   doOk() {
