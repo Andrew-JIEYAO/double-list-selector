@@ -16,7 +16,7 @@
       <div class="item">
         <h3>{{ value.subTitle }}</h3>
         <ul>
-          <li *ngFor="let codeName of getCodeNamesByTitle(selectedTitle)" (click)="onSelectCodeName(codeName)" (dblclick)="onDblClickCodeName(codeName)"
+          <li *ngFor="let codeName of getCodeNamesByTitle(selectedTitle)" (click)="onClickCodeName(codeName)" (dblclick)="onDblClickCodeName(codeName)"
             [style.background-color]="selectedCode === codeName.code ? '#FDD3A4' : 'transparent'">
             {{ codeName.name }}
           </li>

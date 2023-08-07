@@ -15,7 +15,6 @@ import { DialogModule } from 'primeng/dialog';
 export class AppComponent {
   title = 'double-list-selector';
   visible: boolean = false;
-  selectedCode?: string;
   docCodeName = {} as CodeName;
 
   doubleList: DoubleList = {
@@ -248,13 +247,5 @@ export class AppComponent {
 
   showDialog() {
     this.visible = true;
-  }
-
-  onHide() {
-    this.visible = false;
-  }
-
-  onOk(code: string) {
-    this.selectedCode = code;
   }
 }

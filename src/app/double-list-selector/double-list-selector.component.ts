@@ -14,9 +14,6 @@ import { ButtonModule } from 'primeng/button';
 export class DoubleListSelectorComponent {
 
   @Input() value = {} as DoubleList
-  @Output() hide = new EventEmitter<void>();
-  @Output() ok = new EventEmitter<string>();
-
   @Input() codeName = {} as CodeName;
   @Output() codeNameChange = new EventEmitter<CodeName>();
 
@@ -33,31 +30,11 @@ export class DoubleListSelectorComponent {
     return codeName ? codeName.codeNames : [];
   }
 
-  onSelectCodeName(codeName: CodeName) {
+  onClickCodeName(codeName: CodeName) {
     this.selectedCode = codeName.code;
   }
 
   onDblClickCodeName(codeName: CodeName) {
     this.codeNameChange.emit(codeName);
-  }
-
-  doOk() {
-    const code = this.selectedCode;
-    this.ok.emit(code);
-    this.doHide();
-  }
-
-  doCancelClick() {
-    this.#cleanTitleCodeName();
-    this.doHide();
-  }
-
-  doHide() {
-    this.hide.emit();
-  }
-
-  #cleanTitleCodeName() {
-    this.selectedTitle = '';
-    this.selectedCode = undefined;
   }
 }
