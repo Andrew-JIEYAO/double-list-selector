@@ -1,1 +1,33 @@
-<p>double-list-selector works!</p>
+<div>
+  <p-splitter styleClass="mb-5">
+    <ng-template pTemplate>
+      <div class="menu">
+        <h3>{{ value.title }}</h3>
+        <ul>
+          <li *ngFor="let titleCodeName of value.titleCodeNames" (click)="onSelectTitle(titleCodeName.title)"
+            [style.background-color]="selectedTitle === titleCodeName.title ? '#FDD3A4' : 'transparent'">
+            {{ titleCodeName.title }}
+          </li>
+        </ul>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate>
+      <div class="item">
+        <h3>{{ value.subTitle }}</h3>
+        <ul>
+          <li *ngFor="let codeName of getCodeNamesByTitle(selectedTitle)" (click)="onSelectCodeName(codeName)"
+            [style.background-color]="selectedCode === codeName.code ? '#FDD3A4' : 'transparent'">
+            {{ codeName.name }}
+          </li>
+        </ul>
+      </div>
+    </ng-template>
+  </p-splitter>
+
+  <div class="footer">
+    <p-button label="取消" styleClass="p-button-outlined p-button-secondary" (onClick)="doCancelClick()"></p-button>
+    <p-button label="確定" styleClass="p-button-raised p-button-success" (onClick)="doOk()"></p-button>
+  </div>
+
+</div>
